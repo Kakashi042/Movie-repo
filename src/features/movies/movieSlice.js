@@ -42,11 +42,11 @@ const movieSlice = createSlice({
             console.log("pending")
         },
         [fetchAsyncMovies.fulfilled]:(state, { payload })=>{
-            console.log("fulfilled")
+            // console.log("fulfilled")
             return {...state, movies:payload}
         },
         [fetchAsyncShows.fulfilled]:(state, { payload })=>{
-            console.log("fulfilled")
+            // console.log("fulfilled")
             return {...state, shows:payload}
         },
         [fetchAsyncMovieOrShowDetail.fulfilled]:(state, { payload })=>{
@@ -59,5 +59,8 @@ const movieSlice = createSlice({
 export const {addMovies}=movieSlice.actions;
 export const getAllmovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
+export const getSelectedMovieOrShow = (state) => state.movies.selectedMovieOrShow;
+
+
 
 export default movieSlice.reducer;
