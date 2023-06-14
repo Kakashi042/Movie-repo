@@ -16,9 +16,17 @@ export const fetchAsyncShows = createAsyncThunk('movies/fetchAsyncShows', async 
             return response.data
 })
 
+export const fetchAsyncMovieOrShowDetail = createAsyncThunk('movies/fetchAsyncMovieOrShowDetail', async (id)=>{
+    
+    const response = await movieApi
+            .get(`?apiKey=${MovieApiKey}&i=${id}&Plot=full`)
+            return response.data
+})
+
 const initialState ={
     movies:{},
-    shows:{}
+    shows:{},
+    selectedMovieOrShow:{}
 }
 
 const movieSlice = createSlice({
@@ -40,6 +48,10 @@ const movieSlice = createSlice({
         [fetchAsyncShows.fulfilled]:(state, { payload })=>{
             console.log("fulfilled")
             return {...state, shows:payload}
+        },
+        [fetchAsyncMovieOrShowDetail.fulfilled]:(state, { payload })=>{
+            console.log("fulfilled")
+            return {...state, selectedMovieOrShow:payload}
         },
     }
 })
