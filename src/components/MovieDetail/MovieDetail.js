@@ -4,15 +4,15 @@ import { useParams } from 'react-router-dom';
 import { fetchAsyncMovieOrShowDetail, getSelectedMovieOrShow } from '../../features/movies/movieSlice';
 
 const MovieDetail = () => {
-    const imdbID  = useParams();
-    console.log(imdbID);
+    const { id } = useParams();
+    console.log(id);
 
     const dispatch = useDispatch();
     const data = useSelector(getSelectedMovieOrShow)
     console.log(data);
     useEffect(()=>{
-        dispatch(fetchAsyncMovieOrShowDetail('tt0417741'));
-    },[dispatch, imdbID])
+        dispatch(fetchAsyncMovieOrShowDetail(id));
+    },[dispatch, id])
 
     return (
         <div>
