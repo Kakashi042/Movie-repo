@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchAsyncMovieOrShowDetail, getSelectedMovieOrShow } from '../../features/movies/movieSlice';
+import '../MovieDetail/MovieDetail.scss'
 
 const MovieDetail = () => {
     const {id}  = useParams();
@@ -17,7 +18,7 @@ const MovieDetail = () => {
         <div className='movie-section'>
             <div className='section-left'>
                 <div className='movie-title'>{data.Title}</div>
-                <div className='movie=rating'>
+                <div className='movie-rating'>
                     <span>
                         IMDB Rating <i className='fa fa-star'></i> : {data.imdbRating}
                     </span>
