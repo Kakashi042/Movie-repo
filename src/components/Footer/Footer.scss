@@ -1,8 +1,12 @@
 @import '../../common/colors.scss';
 
+div{
+    bottom: 0;
+}
 .footer{
     background: $secondary-color;
     height: 5rem;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
